@@ -113,6 +113,10 @@ set completeopt=menuone
 " カーソル行をハイライト
 set cursorline
 
+" 不可視文字を可視化
+set listchars=eol:↩,tab:»-,trail:_
+set list
+
 " 改行時の自動コメント化をしない
 autocmd BufNewFile,BufRead * setlocal formatoptions-=c
 autocmd BufNewFile,BufRead * setlocal formatoptions-=r
