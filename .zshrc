@@ -1,11 +1,16 @@
 ########################
+# zsh起動時にtmuxも自動起動
+########################
+[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
+
+########################
 # Powerlevel10kにより自動生成
 ########################
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 ########################
@@ -27,6 +32,11 @@ fi
 ########################
 alias ll='ls -alF'
 alias gitg='git log --graph --oneline --decorate=full --date=short --format="%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(auto)%d%C(reset) %s %C(cyan)@%an%C(reset)" $args'
+
+########################
+# PATH
+########################
+export PATH=$HOME/.local/bin:$PATH
 
 ########################
 # cd移動時に自動でllする

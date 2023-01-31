@@ -130,6 +130,8 @@ let g:python3_host_prog = '/usr/bin/python3'
 nnoremap <Space>g :source ~/.config/nvim/init.vim<CR>
 "space割り当て解除 (誤爆を防ぐため)
 nnoremap <Space> <Nop>
+"tmuxで利用するので無効化
+nnoremap <C-q> <Nop>
 "3行飛び上下移動
 noremap <S-j> jjj
 noremap <S-k> jjj
