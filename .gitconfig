@@ -7,6 +7,11 @@
 [interactive]
     diffFilter = delta --color-only
 [delta]
-    features = side-by-side line-numbers
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
     navigate = true  # use n and N to move between diff sections
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
 
