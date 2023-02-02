@@ -95,6 +95,7 @@ zinit ice wait'!0'; zinit load zsh-users/zsh-completions # 補完
 zinit ice wait'!0'; zinit load chrissicool/zsh-256color # 256色使えるようにする
 zinit ice wait'!0'; zinit load zsh-users/zsh-autosuggestions # 過去の入力履歴を検索しサジェストを表示
 zinit ice depth=1; zinit light romkatv/powerlevel10k # theme編集ソフト
+zinit ice wait'!0'; zinit light Aloxaf/fzf-tab # 補完選択メニューをfzfに置き換え
 
 ##########
 # autoload
