@@ -238,14 +238,6 @@ hook_add = '''
 #    let g:indentLine_char = '▏'
 #'''
 
-# --- Seiya.vim
-[[plugins]]
-repo = 'miyakogi/seiya.vim'
-hook_add = '''
-    let g:seiya_auto_enable = 1
-    let g:seiya_target_groups = has('nvim') ? ['guibg'] : ['ctermbg']
-'''
-
 # --- vim-brightest
 # [[plugins]]
 # repo = 'osyo-manga/vim-brightest'
@@ -275,6 +267,20 @@ hook_add = '''
             call CocAction('doHover')
         endif
     endfunction
+
+    " autocomplete (参考: https://qiita.com/totto2727/items/d0844c79f97ab601f13b)
+    inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
+    inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
+    inoremap <silent><expr> <Enter> coc#pum#visible() ? coc#pum#confirm() : "\<Enter>"
+    inoremap <silent><expr> <Esc> coc#pum#visible() ? coc#pum#cancel() : "\<Esc>"
+
+    " <Tab>で次、<S+Tab>で前
+    inoremap <silent><expr> <TAB>
+    \ coc#pum#visible() ? coc#pum#next(1):
+    \ <SID>check_back_space() ? "\<Tab>" :
+    \ coc#refresh()
+    inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<S-TAB>" " "\<C-h>"
+    inoremap <silent><expr> <c-space> coc#refresh()
 '''
 
 # --- vim-polyglot

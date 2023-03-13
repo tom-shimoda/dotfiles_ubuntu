@@ -2,23 +2,6 @@ if &compatible
     set nocompatible
 endif
 
-" Vim終了時に現在のセッションを保存する
-"au VimLeave * call OnClose()
-"function! OnClose()
-"    mks! ~/Session.vim
-"endfunction
-
-"引数なし起動の時、前回のsessionを復元
-"autocmd VimEnter * nested if @% == '' && s:GetBufByte() == 0 | source ~/Session.vim | endif
-"function! s:GetBufByte()
-"    let byte = line2byte(line('$') + 1)
-"    if byte == -1
-"        return 0
-"    else
-"        return byte - 1
-"    endif
-"endfunction
-
 " ----- dein.vim -----
 
 " dein.vimインストール時に指定したディレクトリをセット
@@ -73,7 +56,8 @@ set noswapfile
 set nobackup
 "undoファイル出力無効
 set noundofile
-
+"1行の最大文字数ボーダーライン表示
+set colorcolumn=120
 "更新時間
 set updatetime=300
 
