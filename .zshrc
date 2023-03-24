@@ -115,13 +115,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 小文字でも大文字�
 export FZF_CTRL_T_COMMAND='rg --files --hidden --glob "!.git/*"'
 export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
 
-#######
-# pyenv
-#######
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
 ########################
 # Powerlevel10kにより自動生成
 ########################
