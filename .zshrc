@@ -32,11 +32,13 @@ fi
 ########################
 alias ll='ls -alF'
 alias gitg='git log --graph --oneline --decorate=full --date=short --format="%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(auto)%d%C(reset) %s %C(cyan)@%an%C(reset)" $args'
+alias sail='[ -f sail  ] && sh sail || sh vendor/bin/sail'
 
 ########################
 # PATH
 ########################
 export PATH=$HOME/.local/bin:$PATH
+# export DOCKER_CONTENT_TRUST=1 # Docker Content Trust(DCT)を有効にする (Dockerイメージのなりすまし等を防ぐ)
 
 ########################
 # cd移動時に自動でllする
@@ -108,7 +110,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 小文字でも大文字�
 #######
 # fzf
 #######
-source /usr/share/doc/fzf/examples/key-bindings.zsh
+# source /usr/share/doc/fzf/examples/key-bindings.zsh # Ctrl+tショートカットを使えるようにする設定だけどもう不要っぽい
 # export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*"' # --followはシンボリックを含める
 export FZF_CTRL_T_COMMAND='rg --files --hidden --glob "!.git/*"'
 export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
