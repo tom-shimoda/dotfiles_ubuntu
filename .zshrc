@@ -44,7 +44,7 @@ export PATH=$HOME/.local/bin:$PATH
 # cd移動時に自動でllする
 ########################
 chpwd() {
-    if [[ $(pwd) != $HOME ]]; then;
+    if [[ $(pwd) != $HOME ]]; then
         ll
     fi
 }
