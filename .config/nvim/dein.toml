@@ -15,8 +15,8 @@ hook_add = '''
     \ 'cs' : ['OmniSharp']
     \}
 
-    nmap <silent> gan :ALENext<cr>
-    nmap <silent> gab :ALEPrevious<cr>
+    " nmap <silent> gan :ALENext<cr>
+    " nmap <silent> gab :ALEPrevious<cr>
 '''
 
 # --- airline
@@ -109,19 +109,20 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 -- setup with some options
-require("nvim-tree").setup({
-  -- '-'キーを無効化し、'u'で階層を上がるように(tmux用nvim-treeとバインドを同じにするため)
-  view = {
-    mappings = {
-      list = {
-        { key = "u", action = "dir_up" },
-      },
-    },
-  },
-  remove_keymaps = {
-    '-',
-  }
-})
+require("nvim-tree").setup()
+-- require("nvim-tree").setup({
+--   -- '-'キーを無効化し、'u'で階層を上がるように(tmux用nvim-treeとバインドを同じにするため)
+--   view = {
+--     mappings = {
+--       list = {
+--         { key = "u", action = "dir_up" },
+--       },
+--     },
+--   },
+--   remove_keymaps = {
+--     '-',
+--   }
+-- })
 
 -- nvim-treeが最後のbufferだった場合、自動で閉じる(参考:https://github.com/nvim-tree/nvim-tree.lua/wiki/Auto-Close)
 vim.api.nvim_create_autocmd("BufEnter", {
@@ -262,6 +263,10 @@ hook_add = '''
     nmap <silent> gr <Plug>(coc-references)
     nnoremap <silent> == :call CocAction('format')<CR>
     nnoremap <silent> ghh :call <SID>show_documentation()<CR>
+    nmap <silent> <A-Enter> <Plug>(coc-codeaction-cursor)
+    nmap <silent> gan <Plug>(coc-diagnostic-next)
+    nmap <silent> gab <Plug>(coc-diagnostic-prev)
+    nmap <silent> <Space>r <Plug>(coc-rename)
 
     function! s:show_documentation()
         if (index(['vim','help'], &filetype) >= 0)
@@ -275,7 +280,6 @@ hook_add = '''
     inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
     inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
     inoremap <silent><expr> <Enter> coc#pum#visible() ? coc#pum#confirm() : "\<Enter>"
-    inoremap <silent><expr> <Esc> coc#pum#visible() ? coc#pum#cancel() : "\<Esc>"
 
     " <Tab>で次、<S+Tab>で前
     inoremap <silent><expr> <TAB>
@@ -309,8 +313,8 @@ hook_add = '''
 [[plugins]]
 repo = 'tpope/vim-commentary'
 hook_add = '''
-    noremap <silent> <Space>/ :Commentary<CR>
-    noremap <silent> <C-/> :Commentary<CR>
+    " Ctrl+/ は<C-/>じゃない (https://qiita.com/castaneai/items/42e917d1fdf6d83b717c)
+    noremap <silent> <C-_> :Commentary<CR>
 '''
 
 # --- vim-table-mode
@@ -333,3 +337,28 @@ hook_add = '''
 [[plugins]]
 repo = 'vim-scripts/AmbiCompletion'
 
+# nvimでgoのデバッグ環境構築 (https://zenn.dev/saito9/articles/32c57f776dc369)
+# 他にDelveが必要なので 'go install github.com/go-delve/delve/cmd/dlv@latest' をコマンドライン実行して取得
+# --- nvim-dap
+[[plugins]]
+repo = 'mfussenegger/nvim-dap'
+hook_add = '''
+  source ~/nvim-dap.lua
+'''
+# --- nvim-dap-ui
+[[plugins]]
+repo = 'rcarriga/nvim-dap-ui'
+# --- nvim-treesitter
+# dap-virtual-text用に必要
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+# --- nvim-dap-virtual-text
+# デバッグ中変数の値を表示してくれるプラグイン
+# 1. gccが必要となってくるためchocoでmingwを入れる。
+# 2. nvim上で :TSInstall go を実行して言語をインストール
+# (また :TSInstallInfo を実行すれば、インストール可能な言語名とそのインストール状態が確認できる)
+[[plugins]]
+repo = 'theHamsta/nvim-dap-virtual-text'
+# --- nvim-dap-go
+[[plugins]]
+repo = 'leoluz/nvim-dap-go'

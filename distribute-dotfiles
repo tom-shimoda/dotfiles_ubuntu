@@ -17,3 +17,4 @@ copy_to .tmux-pane-border ~
 copy_to .p10k.zsh ~
 copy_to .gitconfig ~
 copy_to .config/nvim ~/.config -R
+copy_to nvim-dap.lua ~

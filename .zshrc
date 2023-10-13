@@ -33,18 +33,21 @@ fi
 alias ll='ls -alF'
 alias gitg='git log --graph --oneline --decorate=full --date=short --format="%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(auto)%d%C(reset) %s %C(cyan)@%an%C(reset)" $args'
 alias sail='[ -f sail  ] && sh sail || sh vendor/bin/sail'
+alias pbcopy='xsel --clipboard --input'
+alias home='cd /mnt/c/Users/shimoda'
 
 ########################
 # PATH
 ########################
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/Downloads/nvim-linux64/bin:$PATH
 # export DOCKER_CONTENT_TRUST=1 # Docker Content Trust(DCT)を有効にする (Dockerイメージのなりすまし等を防ぐ)
 
 ########################
 # cd移動時に自動でllする
 ########################
 chpwd() {
-    if [[ $(pwd) != $HOME ]]; then
+    if [[ $(pwd) != $HOME && $(pwd) != /mnt/c/Users/shimoda ]]; then
         ll
     fi
 }
@@ -122,3 +125,13 @@ export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --lin
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
