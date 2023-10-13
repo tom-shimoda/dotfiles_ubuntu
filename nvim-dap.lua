@@ -6,7 +6,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 map("n", "<F5>", ":lua require'dap'.continue()<CR>", { silent = true})
-map("n", "<S-F5>", ":lua require'dap'.terminate()<CR>", { silent = true})
+map("n", "<F6>", ":lua require'dap'.terminate()<CR>", { silent = true})
 map("n", "<F9>", ":lua require'dap'.toggle_breakpoint()<CR>", { silent = true})
 map("n", "<F10>", ":lua require'dap'.step_over()<CR>", { silent = true})
 map("n", "<F11>", ":lua require'dap'.step_into()<CR>", { silent = true})
