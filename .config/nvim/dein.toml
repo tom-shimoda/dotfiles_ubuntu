@@ -362,3 +362,4 @@ repo = 'theHamsta/nvim-dap-virtual-text'
 # --- nvim-dap-go
 [[plugins]]
 repo = 'leoluz/nvim-dap-go'
+
