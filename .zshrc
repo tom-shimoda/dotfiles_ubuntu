@@ -41,7 +41,7 @@ alias home='cd /mnt/c/Users/shimoda'
 ########################
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/Downloads/nvim-linux64/bin:$PATH
-export PATH=$HOME/go/bin/:$PATH
+export PATH=$PATH:$HOME/go/bin
 # export DOCKER_CONTENT_TRUST=1 # Docker Content Trust(DCT)を有効にする (Dockerイメージのなりすまし等を防ぐ)
 
 ########################
