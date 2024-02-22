@@ -125,7 +125,7 @@ noremap <C-k> kkk
 noremap <Space>h ^
 "行末移動
 noremap <Space>l $
-"カーソル下のシンボルをリネーム
+"カーソル下のシンボルをリネーム → coc-renameに差し替えたためコメントアウト
 " nnoremap <Space>r *N:%s//
 
 "行番号移動
