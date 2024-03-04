@@ -110,6 +110,8 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=o
 "let g:python_host_prog = $HOME . '/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog = '/usr/bin/python3'
 
+"leaderキー変更
+map , <leader>
 "vimrcの再読込
 nnoremap <Space>g :source ~/.config/nvim/init.vim<CR>
 "space割り当て解除 (誤爆を防ぐため)

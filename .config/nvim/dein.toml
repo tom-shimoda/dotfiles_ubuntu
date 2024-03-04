@@ -82,13 +82,8 @@ hook_add = '''
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
 hook_add = '''
-    map , <leader>
+    " <C-;>バインドはできないっぽい (参考: https://stackoverflow.com/questions/7652590/is-it-possible-to-map-c-to-in-vim)
     map ,, <leader><leader>s
-    map <leader>s <Plug>(easymotion-bd-f2)
-    nmap <leader>s <Plug>(easymotion-overwin-f2)
-    map <leader>l <Plug>(easymotion-bd-jk)
-    nmap <leader>l <Plug>(easymotion-overwin-line)
-
     let g:EasyMotion_smartcase = 1
 '''
 
