@@ -345,6 +345,9 @@ hook_add = '''
 # --- nvim-dap-ui
 [[plugins]]
 repo = 'rcarriga/nvim-dap-ui'
+hook_add = '''
+    nnoremap <silent> <F4> :lua require'dapui'.toggle()<cr>
+'''
 # --- nvim-treesitter
 # dap-virtual-text用に必要
 [[plugins]]
