@@ -142,12 +142,10 @@ dap.configurations.go = {
 		type = "go",
 		name = "Debug the golang",
 		request = "launch",
-		program = "${file}",
-		env = {
-			DB_USER = "docker",
-			DB_PASS = "docker",
-			DB_NAME = "sampledb"
-		}
+        -- 現在開いているファイルを実行
+		-- program = "${file}",
+        -- 常にmain.goを実行
+		program = "main.go",
 	},
 	{
 		type = "go",
