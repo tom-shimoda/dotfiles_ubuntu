@@ -134,7 +134,7 @@ sudo apt install -y --no-install-recommends unzip
 sudo apt install -y --no-install-recommends fontconfig
 wget --no-check-certificate https://github.com/adam7/delugia-code/releases/download/v2111.01.2/delugia-book.zip
 unzip delugia-book.zip
-cp -R delugia-book /usr/share/fonts
+sudo cp -R delugia-book /usr/share/fonts
 
 # apply dotfiles
 echo ""
