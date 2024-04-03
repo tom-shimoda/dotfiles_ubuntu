@@ -34,6 +34,7 @@ alias ll='ls -alF'
 alias gitg='git log --graph --oneline --decorate=full --date=short --format="%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(auto)%d%C(reset) %s %C(cyan)@%an%C(reset)" $args'
 alias sail='[ -f sail  ] && sh sail || sh vendor/bin/sail'
 alias pbcopy='xsel --clipboard --input'
+alias here='cmd.exe /C "start `wslpath -w .`"'
 alias home='cd /mnt/c/Users/shimoda'
 
 ########################
