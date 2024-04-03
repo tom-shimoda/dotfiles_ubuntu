@@ -128,6 +128,9 @@ if "${USE_TMUX}"; then
     cd /
 fi
 
+# xsel
+sudo apt install -y --no-install-recommends xsel
+
 # font
 cd ~/Downloads
 sudo apt install -y --no-install-recommends unzip
