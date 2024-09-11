@@ -36,11 +36,20 @@ alias sail='[ -f sail  ] && sh sail || sh vendor/bin/sail'
 alias pbcopy='xsel --clipboard --input'
 alias here='cmd.exe /C "start `wslpath -w .`"'
 alias home='cd /mnt/c/Users/shimoda'
+alias py='python3'
+alias python='python3'
+alias speedtest='speedtest -s 48463'
 
-
-function youtubeDL_Movie() {
-    yt-dlp $1 -i -f bestvideo+bestaudio/best -o "~/Documents/YouTube/Movie/%(title)s - %(channel)s.%(ext)s" --add-metadata --embed-thumbnail --merge-output-format mp4 -N 10
+# フォルダサイズを取得
+function sz(){
+    if [ $# -eq 0 ]; then
+        # 参考: https://qiita.com/YKInoMT/items/f84f0037b9c6687f4f04
+        du -shx . .[^.]* *
+    else
+        du -shx $1
+    fi
 }
+
 
 ########################
 # PATH
@@ -48,6 +57,7 @@ function youtubeDL_Movie() {
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/Downloads/nvim-linux64/bin:$PATH
 export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:/usr/bin/python3
 # export DOCKER_CONTENT_TRUST=1 # Docker Content Trust(DCT)を有効にする (Dockerイメージのなりすまし等を防ぐ)
 
 ########################
