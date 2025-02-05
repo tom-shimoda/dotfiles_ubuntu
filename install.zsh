@@ -32,6 +32,9 @@ sudo apt install -y --no-install-recommends dpkg
 # git
 echo "### git"
 sudo apt install -y --no-install-recommends git
+# tig
+echo "### tig"
+sudo apt install -y --no-install-recommends tig
 
 # dotfiles
 echo "### dotfiles"

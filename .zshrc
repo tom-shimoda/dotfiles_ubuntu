@@ -43,8 +43,7 @@ alias speedtest='speedtest -s 48463'
 # フォルダサイズを取得
 function sz(){
     if [ $# -eq 0 ]; then
-        # 参考: https://qiita.com/YKInoMT/items/f84f0037b9c6687f4f04
-        du -shx . .[^.]* *
+        du -shx . *(D)
     else
         du -shx $1
     fi
