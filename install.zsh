@@ -32,6 +32,9 @@ sudo apt install -y --no-install-recommends dpkg
 # git
 echo "### git"
 sudo apt install -y --no-install-recommends git
+# tig
+echo "### tig"
+sudo apt install -y --no-install-recommends tig
 
 # dotfiles
 echo "### dotfiles"
@@ -48,17 +51,17 @@ cd /
 # nvim
 echo "### nvim"
 cd ~/Downloads
-if [ ! -e nvim-linux64.tar.gz ]; then
-    wget --no-check-certificate https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz
+if [ ! -e nvim-linux-x86_64.tar.gz ]; then
+    wget --no-check-certificate https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.tar.gz
 else
-    echo "nvim-linux64.tar.gz is exists."
+    echo "nvim-linux-x86_64.tar.gz is exists."
 fi
-mv nvim-linux64.tar.gz ~/.local/bin
+mv nvim-linux-x86_64.tar.gz ~/.local/bin
 cd ~/.local/bin
-tar xzvf nvim-linux64.tar.gz
-rm -rf nvim-linux64.tar.gz
+tar xzvf nvim-linux-x86_64.tar.gz
+rm -rf nvim-linux-x86_64.tar.gz
 # create symbolic link
-ln -s ./nvim-linux64/bin/nvim ./nvim
+ln -s ./nvim-linux-x86_64/bin/nvim ./nvim
 cd /
 
 # nvm
