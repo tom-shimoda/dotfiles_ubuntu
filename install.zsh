@@ -142,6 +142,9 @@ wget --no-check-certificate https://github.com/adam7/delugia-code/releases/downl
 unzip delugia-book.zip
 sudo cp -R delugia-book /usr/share/fonts
 
+# ufw (firewall)
+sudo apt install -y ufw
+
 # apply dotfiles
 echo ""
 echo "### Installed successfuly."
